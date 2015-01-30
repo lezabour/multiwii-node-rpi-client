@@ -47,7 +47,7 @@ function SerialOverTcpFactory() {
             } else if (this._data[offset + 3] <= this._data.length - 6 - offset) {
                 length = this._data[offset + 3];
                 code = this._data[offset + 4];
-                crc = 0x00 ^ length ^ code;
+                crc = 0x00 ^ code ^ length;
 
                 for (i = 0; i < length; i = i + 1) {
                     crc ^= this._data[offset + 5 + i];
@@ -101,7 +101,7 @@ function SerialOverTcpFactory() {
         buffer.writeUInt8(length, 3);
         buffer.writeUInt8(code, 4);
 
-        crc = 0x00 ^ length ^ code;
+        crc = 0x00 ^ code ^ length;
         for (i = 0; i < length; i = i + 1) {
             crc ^= data.readUInt8(i);
             buffer.writeUInt8(data.readUInt8(i), i + 5);
@@ -157,7 +157,7 @@ function SerialOverTcpFactory() {
                 length = this._data[offset + 3];
                 id = this._data[offset + 4];
                 code = this._data[offset + 5];
-                crc = 0x00 ^ length ^ code;
+                crc = 0x00 ^ id ^ code ^ length;
 
                 for (i = 0; i < length; i = i + 1) {
                     crc ^= this._data[offset + 6 + i];
@@ -218,7 +218,7 @@ function SerialOverTcpFactory() {
         buffer.writeUInt8(id, 4);
         buffer.writeUInt8(code, 5);
 
-        crc = 0x00 ^ length ^ code;
+        crc = 0x00 ^ id ^ code ^ length;
         for (i = 0; i < length; i = i + 1) {
             crc ^= data.readUInt8(i);
             buffer.writeUInt8(data.readUInt8(i), i + 6);
