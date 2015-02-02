@@ -2,12 +2,22 @@
 
 This package is used for [vi-kon/multi-node-gui](https://github.com/vi-kon/multiwii-node-gui) package's client. This package use serial protocol to communicate with Fly Controller and TCP/IP protocol to communicate with server.
 
-## Hardware requirements
+## Requirements
+
+### Software requirements
+
+* nodeJS
+  * net
+  * serialport
+
+### Hardware requirements
 
 * **MultiWii Fly Controller** (FC board)
-* **Raspberry Pi** with **Raspbian** (tested with Raspberry B)
+* **Raspberry Pi** with **Raspbian** (tested only with Raspberry B)
 * **WiFi** or **Ethernet** connection
 * **Bidirectional logic level converter** 5v to 3.3v
+
+Note: Should work with another nodeJS capable board not only with Raspberry Pi.
 
 ## Wire connection
 
@@ -75,7 +85,7 @@ Where:
 
 ### MultiWii Serial Protocol
 
-The general format of TCP message is:
+The general format of MSP message is:
 
 `{header}{direction}{length}{code}{payload}{crc}`
 
