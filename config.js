@@ -11,4 +11,7 @@ var config = {
     serial: '/dev/ttyAMA0'
 };
 
+// Don't modify under this line
+// -------------------------------
+
 module.exports = config;
