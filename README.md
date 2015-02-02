@@ -59,9 +59,9 @@ var config = {
 
 ## Usage
 
-To run client run `node client.js` or `node client` command.
+To start client execute `node client.js` or `node client` command in project directory.
 
-After it application start trying connect to server until server accepts connection. If connection lost, then application start reconnect to server again.
+After it application start trying connect to server until server accepts connection. If connection lost the application start reconnecting to server.
 
 ## Api
 
