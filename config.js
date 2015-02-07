@@ -8,7 +8,10 @@ var config = {
         port: 3002
     },
     // Serial port
-    serial: '/dev/ttyAMA0'
+    serial: {
+        port    : '/dev/ttyAMA0',
+        baudRate: 115200
+    }
 };
 
 // Don't modify under this line

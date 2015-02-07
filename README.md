@@ -9,6 +9,7 @@ This package is used for [vi-kon/multi-node-gui](https://github.com/vi-kon/multi
 * nodeJS
   * net
   * serialport
+  * multiwii-msp
 
 ### Hardware requirements
 
@@ -47,15 +48,20 @@ var config = {
         // Server listening port
         port: 3002
     },
-    // Serial port
-    serial: '/dev/ttyAMA0'
+    serial: {
+	    // Serial port
+        port    : '/dev/ttyAMA0',
+        // Serial port baud rate
+        baudRate: 115200
+    }
 };
 ```
 
 * **api** - not in use
 * **tcp.host** - server IP address or URL
 * **tcp.port** - opened server port
-* **serial** - serial port for MultiWii connection
+* **serial.port** - serial port for MultiWii connection
+* **serial.baudRate** - serial port baud rate
 
 ## Usage
 

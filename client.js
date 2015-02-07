@@ -1,16 +1,5 @@
-//var Protocol = require('./MultiWiiSerialProtocol').Protocol;
-//
-//
-//var pr = new Protocol('/dev/ttyAMA0');
-//pr.on('open', function () {
-//    pr.status(function (error, data) {
-//        console.log(data);
-//        pr.close();
-//    });
-//});
-
 var config = require('./config');
 
-var SerialOverTcp = require('./SerialOverTcpFactory').SerialOverTcp;
+var TcpClient = require('multiwii-msp').TcpClient;
 
-var tcp = new SerialOverTcp(config.tcp.host, config.tcp.port, config.serial);
+var client = new TcpClient(config.tcp.host, config.tcp.port, config.serial.port, config.serial.baudRate, true);
